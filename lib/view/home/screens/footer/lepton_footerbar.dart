@@ -10,12 +10,12 @@ class LeptonFooterBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(color: Colors.lightBlue[800]),
-      height: ResponsiveWebSite.isMobile(context) ? 300 : 200,
+      height: ResponsiveWebSite.isMobile(context) ? 500 : 200,
       width: double.infinity,
       child: Column(
         children: [
           SizedBox(
-            height: ResponsiveWebSite.isMobile(context) ? 300 : 200,
+            height: ResponsiveWebSite.isMobile(context) ? 500 : 200,
             width: double.infinity,
             child: ResponsiveWebSite.isMobile(context)
                 ? Column(
@@ -43,7 +43,18 @@ class LeptonFooterBar extends StatelessWidget {
                                   'Lepton Plus Communications is a customer oriented company offering digital solutions in Healthcare,E-Commerce Applications\nHome Automation and Social Networking.\nWe are commited to providing high end sustainable products and services that\nenhances the quality of life',
                               fontsize: 12),
                         ),
-                      )
+                      ),
+                      SizedBox(
+                        width: 350,
+                          height: 90,
+                          child: GooglePoppinsWidgets(text: 
+                          '📌 Lepton Plus Communications (OPC) Pvt.Ltd\n'
+                                '5 th Floor,Karimpanal Statue Avenue , G.H. Road \n'
+                                'Statue,Thiruvanathapuram - 695001,Kerala,India\n'
+                            '📞 +91 97469 66651 | +91 97463 66651 | +91 471 4053483\n'
+                            '✉️ info@leptoncommunications.com\n'
+                            '✉️ leptoncommunications@gmail.com',color: cWhite, fontsize: 11),
+                        ),
                     ],
                   )
                 : Row(
@@ -71,6 +82,19 @@ class LeptonFooterBar extends StatelessWidget {
                                   fontsize: 15),
                             ),
                           ),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: SizedBox(
+                          height: 150,
+                          child: GooglePoppinsWidgets(text: 
+                          '📌 Lepton Plus Communications (OPC) Pvt.Ltd\n'
+                                '5 th Floor,Karimpanal Statue Avenue , G.H. Road \n'
+                                'Statue,Thiruvanathapuram - 695001,Kerala,India\n'
+                            '📞 +91 97469 66651 | +91 97463 66651 | +91 471 4053483\n'
+                            '✉️ info@leptoncommunications.com\n'
+                            '✉️ leptoncommunications@gmail.com',color: cWhite, fontsize: 14),
                         ),
                       )
                     ],

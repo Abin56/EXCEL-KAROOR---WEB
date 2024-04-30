@@ -159,36 +159,36 @@ class ExcelKaroorHOmeScreen extends StatelessWidget {
                                       const SizedBox(
                                         width: 50,
                                       ),
-                                      SizedBox(
-                                        height: 40,
-                                        width: 130,
-                                        child: ElevatedButton(
-                                          style: ElevatedButton.styleFrom(
-                                              shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          20.0),
-                                                  side: const BorderSide(
-                                                      color: cBlack)),
-                                              backgroundColor:
-                                                  Colors.transparent),
-                                          onPressed: () {
-                                            Navigator.push(context,
-                                                MaterialPageRoute(
-                                              builder: (context) {
-                                                return const SchoolProfile();
-                                              },
-                                            ));
-                                          },
-                                          child: Text(
-                                            'Create',
-                                            style: GoogleFonts.poppins(
-                                                fontSize: 13,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.black),
-                                          ),
-                                        ),
-                                      ),
+                                      // SizedBox(
+                                      //   height: 40,
+                                      //   width: 130,
+                                      //   child: ElevatedButton(
+                                      //     style: ElevatedButton.styleFrom(
+                                      //         shape: RoundedRectangleBorder(
+                                      //             borderRadius:
+                                      //                 BorderRadius.circular(
+                                      //                     20.0),
+                                      //             side: const BorderSide(
+                                      //                 color: cBlack)),
+                                      //         backgroundColor:
+                                      //             Colors.transparent),
+                                      //     onPressed: () {
+                                      //       Navigator.push(context,
+                                      //           MaterialPageRoute(
+                                      //         builder: (context) {
+                                      //           return const SchoolProfile();
+                                      //         },
+                                      //       ));
+                                      //     },
+                                      //     child: Text(
+                                      //       'Create',
+                                      //       style: GoogleFonts.poppins(
+                                      //           fontSize: 13,
+                                      //           fontWeight: FontWeight.bold,
+                                      //           color: Colors.black),
+                                      //     ),
+                                      //   ),
+                                      // ),
                                     ],
                                   ),
                                 ),

@@ -25,7 +25,7 @@ class AddressWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       // color: Colors.amber,
-      height: 300,
+      height: 200,
       width: 250,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -260,12 +260,11 @@ List<String> legal = [
   'Refund and\nCancellation Policy'
 ];
 List<String> address = [
-  '📌 Lepton Plus Communications (OPC) Pvt.Ltd'
-      '5 th Floor,Karimpanal Statue Avenue , G.H. Road '
-      'Statue,Thiruvanathapuram - 695001,Kerala,India',
-  '📞 +91 97469 66651 | +91 97463 66651 | +91 471 4053483',
-  '✉️ info@leptoncommunications.com',
-  '✉️ leptoncommunications@gmail.com'
+  '📌 Excel karoor Tution Centre, \n'
+      'Pothencode,Thiruvanathapuram  \n'
+      'PIN - 695001,Kerala,India,\n'
+  '📞 +91 9846293314'
+  '✉️ pramodoasis1@gmail.com'
 ];
 var costechdujonav = [
   const WhyChooseUs(),

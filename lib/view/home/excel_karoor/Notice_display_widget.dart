@@ -68,7 +68,8 @@ class ExcelKaroorNoticedisplay extends StatelessWidget {
                       )),
                 ),
                 GoogleMonstserratWidgets(
-                  text: "snapshot.data!.docs[index]",
+                  text: "EXCELKAROOR",
+                  //"snapshot.data!.docs[index]",
                   //['articleTitle'],
                   fontsize: 15,
                   fontWeight: FontWeight.w500,
