@@ -79,7 +79,7 @@ class LeptonFooterBar extends StatelessWidget {
                                   color: cWhite,
                                   text:
                                       'Lepton Plus Communications is a customer oriented company offering digital solutions in Healthcare,E-Commerce Applications\nHome Automation and Social Networking.\nWe are commited to providing high end sustainable products and services that\nenhances the quality of life',
-                                  fontsize: 15),
+                                  fontsize: 13),
                             ),
                           ),
                         ),
@@ -94,7 +94,7 @@ class LeptonFooterBar extends StatelessWidget {
                                 'Statue,Thiruvanathapuram - 695001,Kerala,India\n'
                             '📞 +91 97469 66651 | +91 97463 66651 | +91 471 4053483\n'
                             '✉️ info@leptoncommunications.com\n'
-                            '✉️ leptoncommunications@gmail.com',color: cWhite, fontsize: 14),
+                            '✉️ leptoncommunications@gmail.com',color: cWhite, fontsize: 13),
                         ),
                       )
                     ],

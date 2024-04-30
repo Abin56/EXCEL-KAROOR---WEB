@@ -22,6 +22,15 @@ class RegisrationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(iconTheme: IconThemeData(color: cWhite),
+      flexibleSpace: Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("webassets/images/login-bg.jpg"),
+                  fit: BoxFit.cover,
+                ),
+              ),) ,),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(

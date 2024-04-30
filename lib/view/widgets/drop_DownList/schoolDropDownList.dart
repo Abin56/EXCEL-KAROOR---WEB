@@ -33,7 +33,7 @@ class _GetSchoolListDropDownButtonState
             return DropdownButtonFormField(
               hint: schoolListValue == null
                   ? const Text(
-                      "select school",
+                      "Click Here",
                       style: TextStyle(
                           color: Color.fromARGB(255, 0, 0, 0), fontSize: 18),
                     )
