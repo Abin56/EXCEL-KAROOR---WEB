@@ -1,13 +1,16 @@
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
+import 'package:vidyaveechi_website/view/fonts/google_fira_sans.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/student/student_details/attandance_graphview.dart';
+import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
 class StudentsDetailsPart extends StatelessWidget {
-  const StudentsDetailsPart({super.key});
-
+   const StudentsDetailsPart({super.key});
   @override
   Widget build(BuildContext context) {
     return ResponsiveWebSite.isMobile(context)
@@ -44,6 +47,7 @@ class StudentsDetailsPart extends StatelessWidget {
   }
 }
 
+final String formatter = DateFormat('yMd').format(DateTime.now());
 List<Widget> studentsDetailsPartList = [
   Padding(
     padding: const EdgeInsets.only(left: 0, top: 0),
@@ -52,10 +56,11 @@ List<Widget> studentsDetailsPartList = [
       color: cWhite,
       child: Row(
         children: [
-          const Padding(
+           Padding(
             padding: EdgeInsets.only(left: 12, top: 8, bottom: 8),
             child: CircleAvatar(
               maxRadius: 50,
+              backgroundImage: NetworkImage( UserCredentialsController .studentModel!.profileImageUrl),
             ),
           ),
           const SizedBox(
@@ -67,13 +72,38 @@ List<Widget> studentsDetailsPartList = [
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                TextFontWidget(text: "Welcome,", fontsize:17,fontWeight: FontWeight.w700,),
+             //   TextFontWidget(text: "Welcome,", fontsize:17,fontWeight: FontWeight.w700,),
                 TextFontWidget(
-                  text: "Ananya Sharma",
+                  text: UserCredentialsController .studentModel!.studentName,
                   fontsize: 15,
                   fontWeight: FontWeight.w600,
                 ),
-                TextFontWidget(text: "Thursday, March 06 2023", fontsize: 13),
+                TextFontWidget(text: formatter,
+                //"Thursday, March 06 2023",
+                 fontsize: 13),
+                  FutureBuilder(
+                                future: FirebaseFirestore.instance
+                                    .collection('SchoolListCollection')
+                                    .doc(UserCredentialsController.schoolId)
+                                    .collection(
+                                        UserCredentialsController.batchId!)
+                                    .doc(UserCredentialsController.batchId)
+                                    .collection('classes')
+                                    .doc(UserCredentialsController.classId)
+                                    .get(),
+                                builder: (context, snaps) {
+                                  if (snaps.hasData) {
+                                    return GoogleFirasansWidgets(
+                                      text:
+                                          'Class : ${snaps.data!.data()!['className']}',
+                                      fontsize: 12,
+                                      fontWeight: FontWeight.w400,
+                                      color: cBlack,
+                                    );
+                                  } else {
+                                    return const Text('');
+                                  }
+                                }),
               ],
             ),
           ),

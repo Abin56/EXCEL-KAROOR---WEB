@@ -37,7 +37,7 @@ class AllParentsListContainer extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                       Padding(
+                        Padding(
                           padding: EdgeInsets.only(left: 25, top: 25),
                           child: SizedBox(
                             height: 60,
@@ -147,7 +147,7 @@ class AllParentsListContainer extends StatelessWidget {
                           child: Padding(
                             padding: const EdgeInsets.only(left: 10, right: 10),
                             child: Container(
-                              width: 1150,
+                            //  width: 1150,
                               decoration: BoxDecoration(
                                 color: cWhite,
                                 border: Border.all(color: cWhite),

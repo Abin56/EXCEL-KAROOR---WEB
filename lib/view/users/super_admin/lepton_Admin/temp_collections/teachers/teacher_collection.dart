@@ -8,7 +8,7 @@ import '../../../controllers/temp_Collection_controller/temp_teacher_controller/
 class TeacherTempCollection extends StatelessWidget {
  final TempTeacherController tempTeacherController =
       Get.put(TempTeacherController());
-  String schoolID;
+ final String schoolID;
   TeacherTempCollection({super.key, required this.schoolID});
 
   @override

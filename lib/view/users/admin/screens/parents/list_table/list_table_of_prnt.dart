@@ -1,27 +1,27 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vidyaveechi_website/controller/admin_section/parent_controller/parent_controller.dart';
 import 'package:vidyaveechi_website/model/parent_model/parent_model.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
+import 'package:vidyaveechi_website/view/utils/firebase/firebase.dart';
 import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
 import 'package:vidyaveechi_website/view/widgets/data_list_widgets/data_container.dart';
 
 class AllParentsDataList extends StatelessWidget {
   final int index;
- final ParentModel data;
-   AllParentsDataList({
+  final ParentModel data;
+  AllParentsDataList({
     required this.index,
     required this.data,
     super.key,
   });
-final ParentController parentController = Get.put(ParentController());
+  final ParentController parentController = Get.put(ParentController());
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 45,
-       decoration: BoxDecoration(
+      decoration: BoxDecoration(
         color: index % 2 == 0
             ? const Color.fromARGB(255, 246, 246, 246)
             : Colors.blue[50],
@@ -63,9 +63,9 @@ final ParentController parentController = Get.put(ParentController());
                     ),
                   ),
                 ),
-                 Expanded(
+                Expanded(
                   child: TextFontWidget(
-                    text:"${ data.parentName}",
+                    text: "${data.parentName}",
                     fontsize: 12,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -88,7 +88,7 @@ final ParentController parentController = Get.put(ParentController());
                     ),
                   ),
                 ),
-                 Expanded(
+                Expanded(
                   child: TextFontWidget(
                     text: "  ${data.parentEmail}",
                     fontsize: 12,
@@ -113,7 +113,7 @@ final ParentController parentController = Get.put(ParentController());
                     ),
                   ),
                 ),
-                 Expanded(
+                Expanded(
                   child: TextFontWidget(
                     text: "  ${data.parentPhoneNumber}",
                     fontsize: 12,
@@ -128,32 +128,40 @@ final ParentController parentController = Get.put(ParentController());
           ),
           Expanded(
             flex: 2,
-            child: 
-            FutureBuilder(
-              future: FirebaseFirestore.instance
-                          .collection('SchoolListCollection')
-                          .doc(UserCredentialsController.schoolId)
-                          .collection(UserCredentialsController.batchId!)
-                          .doc(UserCredentialsController.batchId)
-                          .collection('classes')
-                          .doc(UserCredentialsController.classId)
-                          .get(),
-              builder: (context, snaps) {
-                if (snaps.hasData) {
-                return DataContainerWidget(
-                    rowMainAccess: MainAxisAlignment.center,
-                    color: cWhite,
-                    // width: 150,
-                    index: index,
-                    headerTitle: 'Std : ${snaps.data?.data()?['className']}',
-                    // Get.find<StudentController>().stNameController.text.trim()
-                  //  parentController.studentName.string
-                    );
-                    } else {
-                          return const Text('');
-                        }
-              }
-            ),
+            child: StreamBuilder(
+                stream: server
+                    .collection('SchoolListCollection')
+                    .doc(UserCredentialsController.schoolId)
+                    .collection('AllStudents')
+                    .doc(data.studentID)
+                    .snapshots(),
+                builder: (context, stsnaps) {
+                  if (stsnaps.hasData) {
+                    return StreamBuilder(
+                        stream: server
+                            .collection('SchoolListCollection')
+                            .doc(UserCredentialsController.schoolId)
+                            .collection('classes')
+                            .doc(stsnaps.data?.data()?['classId'])
+                            .snapshots(),
+                        builder: (context, snapshot) {
+                          return DataContainerWidget(
+                            rowMainAccess: MainAxisAlignment.center,
+                            color: cWhite,
+                            // width: 150,
+                            index: index,
+                            headerTitle:
+                                ' ${snapshot.data?.data()?['className']??'Not Found'}',
+                            // Get.find<StudentController>().stNameController.text.trim()
+                            //  parentController.studentName.string
+                          );
+                        });
+                  } else if (stsnaps.hasError) {
+                    return const Text('Class');
+                  } else {
+                    return const Text('');
+                  }
+                }),
           ), //............................. Student Class
           //  Expanded(
           //   flex: 2,
@@ -180,7 +188,7 @@ final ParentController parentController = Get.put(ParentController());
           //               }
           //     }
           //   ),
-          // ), 
+          // ),
 
           const SizedBox(
             width: 01,

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:vidyaveechi_website/controller/dashBoard_controller/dashBoard_controller.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/utils/firebase/firebase.dart';
@@ -63,6 +61,7 @@ class AllClassListViewContainer extends StatelessWidget {
     final date = DateTime.now();
     DateTime parseDate = DateTime.parse(date.toString());
     final month = DateFormat('MMMM-yyyy');
+    // ignore: unused_local_variable
     String monthwise = month.format(parseDate);
     final DateFormat formatter = DateFormat('dd-MM-yyyy');
     String formatted = formatter.format(parseDate);

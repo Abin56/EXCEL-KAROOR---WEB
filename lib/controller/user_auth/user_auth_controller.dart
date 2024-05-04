@@ -15,6 +15,7 @@ import 'package:vidyaveechi_website/view/splash_screen/splash_screen.dart';
 import 'package:vidyaveechi_website/view/users/admin/admin_home.dart';
 import 'package:vidyaveechi_website/view/users/parent_panel/parent_home.dart';
 import 'package:vidyaveechi_website/view/users/student/student_home.dart';
+import 'package:vidyaveechi_website/view/users/teacher/teachers_home.dart';
 import 'package:vidyaveechi_website/view/utils/firebase/firebase.dart';
 import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
 
@@ -162,11 +163,13 @@ Future<void> checkTeacher(FirebaseAuth auth) async {
   if (teacherModel.data() != null) {
     UserCredentialsController.teacherModel =
         TeacherModel.fromMap(teacherModel.data()!);
-    Get.offAll(() =>  Scaffold(
-      body: SafeArea(child: Center(
-        child: TextFontWidget(text: "under Maintenance.........", fontsize: 20),
-      )),
-    ));
+    Get.offAll(() => TeachersHomeScreen()
+    //  Scaffold(
+    //   body: SafeArea(child: Center(
+    //     child: TextFontWidget(text: "under Maintenance.........", fontsize: 20),
+    //   )),
+    // )
+    );
     // Get.off(() => const StudentsMainHomeScreen());
   } else {
     showToast(msg: "Please login again");

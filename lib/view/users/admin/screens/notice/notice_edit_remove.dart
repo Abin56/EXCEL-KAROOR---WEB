@@ -7,8 +7,10 @@ import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/notice/notice_create.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/notice/notice_data_list.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/widgets/category_tableHeader.dart';
+import 'package:vidyaveechi_website/view/users/super_admin/widgets/buttonContainer.dart';
 import 'package:vidyaveechi_website/view/utils/firebase/firebase.dart';
 import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
+import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
 
 class NoticeEditRemove extends StatelessWidget {
   final NoticeController noticeController = Get.put(NoticeController());
@@ -38,14 +40,42 @@ class NoticeEditRemove extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 20, bottom: 20),
-            child: CreateNotice(),
-          ),
+          // Padding(
+          //   padding: const EdgeInsets.only(top: 20, bottom: 20),
+          //   child: CreateNotice(),
+          // ),
+           Padding(
+             padding: const EdgeInsets.only(bottom: 10),
+             child: Row(
+                children: [
+                 const RouteSelectedTextContainer(
+                     width: 180, title: 'All Notices'),
+                 const Spacer(),
+                 GestureDetector(
+                   onTap: () {
+                      createNoticeAdmin(context);
+                   },
+                   child: ButtonContainerWidget(
+                       curving: 30,
+                       colorindex: 0,
+                       height: 40,
+                       width: 180,
+                       child: const Center(
+                        child: TextFontWidgetRouter(
+                          text: 'Create Notices',
+                          fontsize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: cWhite,
+                      ),
+                    )),
+                 )
+               ],
+                        ),
+           ),
           Container(
             color: cWhite,
             child: Padding(
-              padding: const EdgeInsets.only(left: 5, right: 5),
+              padding: const EdgeInsets.only(left: 5, right: 5,),
               child: Container(
                 color: cWhite,
                 height: 40,

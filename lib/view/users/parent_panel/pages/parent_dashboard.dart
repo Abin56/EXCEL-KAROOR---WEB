@@ -11,10 +11,10 @@ import 'package:vidyaveechi_website/view/users/parent_panel/pages/parent_dashboa
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 // import 'package:vidyaveechi_website/view/users/parent_panel/pages/parent_dashboard/sections/table%20calender/table_calender.dart';
 
-import 'sections/notification/notification.dart';
-import 'sections/parent data table/parentdatatable.dart';
-import 'sections/student study analyzer/student study progress/subjectwise_graph/student_study_progrss.dart';
-import 'sections/student study analyzer/subjectwise graph/subjectwise_graph.dart';
+import 'parent_dashboard/sections/notification/notification.dart';
+import 'parent_dashboard/sections/parent data table/parentdatatable.dart';
+import 'parent_dashboard/sections/student study analyzer/student study progress/subjectwise_graph/student_study_progrss.dart';
+import 'parent_dashboard/sections/student study analyzer/subjectwise graph/subjectwise_graph.dart';
 
 class ParentDashBoardContainer extends StatelessWidget {
   const ParentDashBoardContainer({super.key});
@@ -22,7 +22,7 @@ class ParentDashBoardContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> parentDashBoardWidgets = [
-      const ParentProfileWidget(), //  1
+       ParentProfileWidget(), //  1
       SizedBox(
         height: 160,
         width: ResponsiveWebSite.isMobile(context) ? double.infinity : 200,

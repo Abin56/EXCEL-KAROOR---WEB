@@ -5,6 +5,7 @@ import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/asign_subject/asign_subject.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/teacher/teachers_details/widgets/detail_tileContainer.dart';
+import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
 import 'package:vidyaveechi_website/view/widgets/blue_Container_widget/blue_Container_widget.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/route_NonSelectedContainer.dart';
@@ -30,7 +31,7 @@ class TeachersDetailsContainer extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-               Padding(
+                Padding(
                 padding: EdgeInsets.only(left: 25, top: 25),
                 child: TextFontWidget(
                   text: 'Teacher Details',
@@ -91,16 +92,23 @@ class TeachersDetailsContainer extends StatelessWidget {
                           // mainAxisAlignment: MainAxisAlignment.start,
                           // crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Padding(
-                              padding: EdgeInsets.only(top: 05, left: 10),
+                             Padding(
+                              padding: const EdgeInsets.only(top: 05, left: 10),
                               child: CircleAvatar(
                                 radius: 80,
                                 backgroundColor: Colors.grey,
-                                child: CircleAvatar(
+                                child:CircleAvatar(
+                                  backgroundImage: NetworkImage(
+                                      UserCredentialsController
+                                              .teacherModel?.imageUrl ??
+                                          ""),
                                   radius: 78,
-                                  backgroundImage: AssetImage(
-                                      'webassets/png/teacher (1).png'),
                                 ),
+                                //  CircleAvatar(
+                                //   radius: 78,
+                                //   backgroundImage: AssetImage(
+                                //       'webassets/png/teacher (1).png'),
+                                // ),
                               ),
                             ),
                             Expanded(

@@ -48,6 +48,16 @@ class TimeTableController extends GetxController {
 
   RxBool ontapTimetable = false.obs;
   Rx<ButtonState> buttonstate = ButtonState.idle.obs;
+   // Map to store index values for weekdays
+  final Map<String, int> weekdayIndices = {
+    'Monday': 0,
+    'Tuesday': 1,
+    'Wednesday': 2,
+    'Thursday': 3,
+    'Friday': 4,
+    'Saturday': 5,
+    'Sunday': 6,
+  };
 
   Future<void> addTimeTableDataToFirebase() async {
     final classController = Get.put(ClassController());
@@ -59,7 +69,7 @@ class TimeTableController extends GetxController {
       periodNumber: periodController.text,
       startTime: startTimeController.text,
       endTime: endTimeController.text,
-      selectColor: subjectController.subjectColor!.value,
+      selectColor: subjectController.subjectColor.value,
       docid: periodController.text,
     
     );
@@ -76,7 +86,7 @@ class TimeTableController extends GetxController {
           .doc(classController.classDocID.value)
           .collection('timetables')
           .doc(dayName.value)
-          .set({'docid': dayName.value, 'day': dayName.value}).then(
+          .set({'docid': dayName.value, 'day': dayName.value,'index': weekdayIndices[dayName.value]}).then(
               (value) => FirebaseFirestore.instance
                       .collection('SchoolListCollection')
                       .doc(UserCredentialsController.schoolId)

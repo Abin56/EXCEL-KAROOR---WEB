@@ -2,15 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:vidyaveechi_website/controller/admin_section/student_controller/student_controller.dart';
 import 'package:vidyaveechi_website/controller/fees_N_bills_Controller/feeStudent_controller.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
-import 'package:vidyaveechi_website/view/constant/constant.validate.dart';
 import 'package:vidyaveechi_website/view/drop_down/fees/select_day.dart';
 import 'package:vidyaveechi_website/view/drop_down/fees/select_month.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/widgets/fees_dataList.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/widgets/category_tableHeader.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/widgets/category_tile_container.dart';
 
 class PerStudentFeesHistory extends StatelessWidget {

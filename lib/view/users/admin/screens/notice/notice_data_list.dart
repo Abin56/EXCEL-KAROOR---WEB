@@ -41,10 +41,13 @@ class AllNoticeDataList extends StatelessWidget {
           ),
           Expanded(
             flex: 3,
-            child: TextFontWidget(
-              text: '  ${data.subject}',
-              fontsize: 12,
-              overflow: TextOverflow.ellipsis,
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: TextFontWidget(
+                text: '  ${data.subject}',
+                fontsize: 12,
+                overflow: TextOverflow.ellipsis,
+              ),
             ),
           ), //........................................... subject
           const SizedBox(

@@ -16,8 +16,6 @@ import 'package:vidyaveechi_website/view/constant/constant.validate.dart';
 import 'package:vidyaveechi_website/view/drop_down/user_login/select_class.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/splash_screen/splash_screen.dart';
-import 'package:vidyaveechi_website/view/users/teacher/teacher_home.dart';
-// import 'package:vidyaveechi_website/view/users/teacher/teacher.dart';
 import 'package:vidyaveechi_website/view/utils/firebase/firebase.dart';
 import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
 import 'package:vidyaveechi_website/view/utils/utils.dart';
@@ -25,6 +23,7 @@ import 'package:vidyaveechi_website/view/widgets/custom_showdialouge/custom_show
 import 'package:vidyaveechi_website/view/widgets/drop_DownList/schoolDropDownList.dart';
 
 import '../../view/drop_down/user_login/batch_year.dart';
+import '../../view/users/teacher/teachers_home.dart';
 
 class UserLoginController extends GetxController {
   final classCtrl = Get.put(ClassController());
@@ -413,7 +412,7 @@ class UserLoginController extends GetxController {
   }
 
   Future<void> teachereLoginController(BuildContext context) async {
-    //....... ........................................techer  Login Function
+    //....... ........................................parent  Login Function
 
     try {
       await FirebaseAuth.instance
@@ -435,29 +434,29 @@ class UserLoginController extends GetxController {
         }
 
         if (UserCredentialsController.teacherModel?.userRole == "teacher") {
-          Scaffold(
-      body: SafeArea(child: Center(
-        child: TextFontWidget(text: "under Maintenance.........", fontsize: 20),
-      )),
-    );
-          // await SharedPreferencesHelper.setString(
-          //     SharedPreferencesHelper.userRoleKey, 'teacher');
-          // await SharedPreferencesHelper.setString(
-          //     SharedPreferencesHelper.schoolIdKey, schoolID!);
-          // await SharedPreferencesHelper.setString(
-          //     SharedPreferencesHelper.schoolNameKey, schoolName!);
-          // await SharedPreferencesHelper.setString(
-          //     SharedPreferencesHelper.batchIdKey,
-          //     batchCtrl.batchyearValue.value);
-          // await SharedPreferencesHelper.setString(
-          //     SharedPreferencesHelper.classIdKey, classCtrl.classDocID.value);
-          // if (context.mounted) {
-          //   Navigator.pushAndRemoveUntil(context,
-          //       MaterialPageRoute(builder: (context) {
-          //     return SplashScreen();
-          //   }), (route) => false);
-          // }
-          // isLoading.value = false;
+    //       Scaffold(
+    //   body: SafeArea(child: Center(
+    //     child: TextFontWidget(text: "under Maintenance.........", fontsize: 20),
+    //   )),
+    // );
+          await SharedPreferencesHelper.setString(
+              SharedPreferencesHelper.userRoleKey, 'teacher');
+          await SharedPreferencesHelper.setString(
+              SharedPreferencesHelper.schoolIdKey, schoolID!);
+          await SharedPreferencesHelper.setString(
+              SharedPreferencesHelper.schoolNameKey, schoolName!);
+          await SharedPreferencesHelper.setString(
+              SharedPreferencesHelper.batchIdKey,
+              batchCtrl.batchyearValue.value);
+          await SharedPreferencesHelper.setString(
+              SharedPreferencesHelper.classIdKey, classCtrl.classDocID.value);
+          if (context.mounted) {
+            Navigator.pushAndRemoveUntil(context,
+                MaterialPageRoute(builder: (context) {
+              return SplashScreen();
+            }), (route) => false);
+          }
+          isLoading.value = false;
         } else {
           showToast(msg: "You are not a teacher");
           isLoading.value = false;

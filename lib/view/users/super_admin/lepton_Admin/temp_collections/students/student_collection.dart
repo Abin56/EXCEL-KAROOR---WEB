@@ -8,9 +8,9 @@ import '../../../controllers/temp_Collection_controller/temp_students_controller
 import '../../../widgets/drop_down/get_class.dart';
 
 class StudenTempCollection extends StatelessWidget {
-  TempStudentController tempStudentController =
+ final TempStudentController tempStudentController =
       Get.put(TempStudentController());
-  String schoolID;
+ final String schoolID;
   StudenTempCollection({super.key, required this.schoolID});
 
   @override

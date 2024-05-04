@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
+import 'package:vidyaveechi_website/view/utils/firebase/firebase.dart';
+import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
 
 // import '../../../../../../../../fonts/text_widget.dart';
 
@@ -32,53 +34,67 @@ class ParentNotification extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const Icon(Icons.more_horiz),
+                  // const Icon(Icons.more_horiz),
                 ],
               ),
-              Padding(
-                padding: const EdgeInsets.only(
-                  top: 10,left: 10
-                ),
-                child: Container(
-                  height: 40,
-                  width: 150,
-                  decoration: const BoxDecoration(
-                      color: Colors.teal,
-                      borderRadius: BorderRadius.all(Radius.elliptical(50, 50))),
-                  child: Center(
-                      child: TextFontWidget(
-                          text: "16 June ,2019", fontsize: 16)),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 10,left: 10),
-                child: TextFontWidget(
-                  text:
-                      "Great School manag mene esom tus eleifend lectus sed maximus mi faucibusnting.",
-                  fontsize: 16,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 20,left: 10),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: TextFontWidget(
-                        text: "Jennyfar Lopez / 5 min ago",
-                        fontsize: 14,
-                        fontWeight: FontWeight.w300,
-                      ),
-                    ),
-                  
-                    //Jennyfar Lopez / 5 min ago
-                  ],
-                ),
-              ),
-              const Divider(
-                color: Colors.grey,
-                height: 10,
-              )
+              StreamBuilder(
+                  stream: server
+                      .collection("SchoolListCollection")
+                      .doc(UserCredentialsController.schoolId)
+                      .collection('AllUsersDeviceID')
+                      .doc(serverAuth.currentUser!.uid)
+                      .collection("Notification_Message")
+                      .snapshots(),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const CircularProgressIndicator();
+                    } else if (snapshot.hasError) {
+                      return Text('Error: ${snapshot.error}');
+                    } else if (!snapshot.hasData ||
+                        snapshot.data!.docs.isEmpty) {
+                      return const Padding(
+                        padding: EdgeInsets.only(top: 30),
+                        child:
+                            Center(child: Text('No Notifications available')),
+                      );
+                    } else {
+                      return ListView.separated(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: snapshot.data!.docs.length,
+                        separatorBuilder: (context, index) => const Divider(
+                          color: Colors.grey,
+                          height: 10,
+                        ),
+                        itemBuilder: (context, index) {
+                          final data = snapshot.data!.docs[index].data();
+                          return Column(
+                            children: [
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(top: 10, left: 10),
+                                child: TextFontWidget(
+                                  text: data['headerText'] ?? "",
+                                  // "Great School",
+                                  fontsize: 16,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    top: 15, left: 10, bottom: 15),
+                                child: TextFontWidget(
+                                  text: data['messageText'] ?? "",
+                                  // "Great School manag mene esom tus eleifend lectus sed maximus mi faucibusnting.",
+                                  fontsize: 14,
+                                ),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    }
+                  }),
             ],
           ),
         ),

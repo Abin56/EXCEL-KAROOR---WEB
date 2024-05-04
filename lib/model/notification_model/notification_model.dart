@@ -9,12 +9,18 @@ class NotificationModel {
   final String headerText;
   final Color whiteshadeColor;
   final Color containerColor;
+  final bool open;
+  final String docid;
+  final String dateTime;
   NotificationModel({
     this.icon,
     required this.messageText,
     required this.headerText,
     required this.whiteshadeColor,
     required this.containerColor,
+    required this.open,
+    required this.docid,
+    required this.dateTime,
   });
 
 
@@ -24,6 +30,9 @@ class NotificationModel {
     String? headerText,
     Color? whiteshadeColor,
     Color? containerColor,
+    bool? open,
+    String? docid,
+    String? dateTime,
   }) {
     return NotificationModel(
       icon: icon ?? this.icon,
@@ -31,6 +40,9 @@ class NotificationModel {
       headerText: headerText ?? this.headerText,
       whiteshadeColor: whiteshadeColor ?? this.whiteshadeColor,
       containerColor: containerColor ?? this.containerColor,
+      open: open ?? this.open,
+      docid: docid ?? this.docid,
+      dateTime: dateTime ?? this.dateTime,
     );
   }
 
@@ -41,16 +53,22 @@ class NotificationModel {
       'headerText': headerText,
       'whiteshadeColor': whiteshadeColor.value,
       'containerColor': containerColor.value,
+      'open': open,
+      'docid': docid,
+      'dateTime': dateTime,
     };
   }
 
   factory NotificationModel.fromMap(Map<String, dynamic> map) {
     return NotificationModel(
-      icon: map['icon'] != null ? IconData(map['icon'] as int, fontFamily: 'MaterialIcons') : null,
-      messageText: map['messageText'] as String,
-      headerText: map['headerText'] as String,
-      whiteshadeColor: Color(map['whiteshadeColor'] as int),
-      containerColor: Color(map['containerColor'] as int),
+      icon: map['icon'] != null ? IconData(map['icon'] ?? 0, fontFamily: 'MaterialIcons') : null,
+      messageText: map['messageText'] ??"",
+      headerText: map['headerText'] ??"",
+      whiteshadeColor: Color(map['whiteshadeColor'] ?? 0),
+      containerColor: Color(map['containerColor'] ?? 0),
+      open: map['open'] as bool,
+      docid: map['docid'] ??"",
+      dateTime: map['dateTime'] ??"",
     );
   }
 
@@ -60,7 +78,7 @@ class NotificationModel {
 
   @override
   String toString() {
-    return 'NotificationModel(icon: $icon, messageText: $messageText, headerText: $headerText, whiteshadeColor: $whiteshadeColor, containerColor: $containerColor)';
+    return 'NotificationModel(icon: $icon, messageText: $messageText, headerText: $headerText, whiteshadeColor: $whiteshadeColor, containerColor: $containerColor, open: $open, docid: $docid, dateTime: $dateTime)';
   }
 
   @override
@@ -72,7 +90,10 @@ class NotificationModel {
       other.messageText == messageText &&
       other.headerText == headerText &&
       other.whiteshadeColor == whiteshadeColor &&
-      other.containerColor == containerColor;
+      other.containerColor == containerColor &&
+      other.open == open &&
+      other.docid == docid &&
+      other.dateTime == dateTime;
   }
 
   @override
@@ -81,6 +102,9 @@ class NotificationModel {
       messageText.hashCode ^
       headerText.hashCode ^
       whiteshadeColor.hashCode ^
-      containerColor.hashCode;
+      containerColor.hashCode ^
+      open.hashCode ^
+      docid.hashCode ^
+      dateTime.hashCode;
   }
 }

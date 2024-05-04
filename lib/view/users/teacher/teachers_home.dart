@@ -1,13 +1,14 @@
+
 import 'package:flutter/material.dart';
 import 'package:sidebar_drawer/sidebar_drawer.dart';
-import 'package:vidyaveechi_website/view/colors/colors.dart';
-import 'package:vidyaveechi_website/view/constantvalidate.dart';
-import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
-import 'package:vidyaveechi_website/view/users/admin/admin_home.dart';
-// import 'package:vidyaveechi_website/view/users/admin/drawer/drawer_pages.dart';
-import 'package:vidyaveechi_website/view/users/teacher/app_bar/teacher_appBar.dart';
+import 'package:vidyaveechi_website/info/info.dart';
 import 'package:vidyaveechi_website/view/users/teacher/drawer/teacher_drawer_pages.dart';
-// import 'package:vidyaveechi_website/view/users/teacher/widget/teacherwidget.dart';
+
+import '../../colors/colors.dart';
+import '../../constantvalidate.dart';
+import '../../fonts/google_poppins_widget.dart';
+import 'teachers_panel/teachers_appbar/teacher_appBar.dart';
+import 'teachers_panel/pages/teachers_dashboard.dart';
 
 class TeachersHomeScreen extends StatefulWidget {
   const TeachersHomeScreen({super.key});
@@ -26,7 +27,7 @@ class _TeachersHomeScreenState extends State<TeachersHomeScreen> {
         child: SidebarDrawer(
             body: ListView(
               children: [
-                AppBarTeacherPanel(),
+               AppBarTeacherPanel(),
                 pages[selectedIndex],
               ],
             ),
@@ -34,7 +35,7 @@ class _TeachersHomeScreenState extends State<TeachersHomeScreen> {
               color: cWhite,
               child: SingleChildScrollView(
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 10),
+                  padding: const EdgeInsets.only(left: 10,bottom: 630),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -44,15 +45,16 @@ class _TeachersHomeScreenState extends State<TeachersHomeScreen> {
                           children: [
                             SizedBox(
                               height: 60,
-                              child: Image.asset(
-                                'webassets/excel_karror/excel_karoor_logo.png',
+                              child: Image.asset(logoImage,
                                 fit: BoxFit.fill,
                               ),
                             ),
-                            GooglePoppinsWidgets(
-                              text: "EXCEL KAROOR",
-                              fontsize: 20,
-                              fontWeight: FontWeight.w500,
+                            Expanded(
+                              child: GooglePoppinsWidgets(
+                                text: name,
+                                fontsize: 18,
+                                fontWeight: FontWeight.w500,
+                              ),
                             )
                           ],
                         ),
@@ -87,53 +89,53 @@ class _TeachersHomeScreenState extends State<TeachersHomeScreen> {
   }
 }
 
-// List<Widget> pages = [
-//  const TeacherDashBoardScreen(),
-//   Center(
-//     child: Text(sideMenu[1]),
-//   ),
-//   Center(
-//     child: Text(sideMenu[2]),
-//   ),
-//   Center(
-//     child: Text(sideMenu[3]),
-//   ),
-//   Center(
-//     child: Text(sideMenu[4]),
-//   ),
-//   Center(
-//     child: Text(sideMenu[5]),
-//   ),
-//   Center(
-//     child: Text(sideMenu[6]),
-//   ),
-//   Center(
-//     child: Text(sideMenu[7]),
-//   ),
-//   Center(
-//     child: Text(sideMenu[8]),
-//   ),
-//   Center(
-//     child: Text(sideMenu[9]),
-//   ),
-//   Center(
-//     child: Text(sideMenu[10]),
-//   ),
-//   Center(
-//     child: Text(sideMenu[11]),
-//   ),
-// ];
-// List<String> sideMenu = [
-//   'Attendence',
-//   'Food Manage',
-//   'Rooms Manage',
-//   'Leave Requests',
-//   'Visitors Pass',
-//   'Students Manage',
-//   'Students Payment',
-//   'Employee Manage',
-//   'Bill Manage',
-//   'Notice Board',
-//   'Settings',
-//   'Rules',
-// ];
+List<Widget> pages = [
+  const TeacherDashBoardScreen(),
+  Center(
+    child: Text(sideMenu[1]),
+  ),
+  Center(
+    child: Text(sideMenu[2]),
+  ),
+  Center(
+    child: Text(sideMenu[3]),
+  ),
+  Center(
+    child: Text(sideMenu[4]),
+  ),
+  Center(
+    child: Text(sideMenu[5]),
+  ),
+  Center(
+    child: Text(sideMenu[6]),
+  ),
+  Center(
+    child: Text(sideMenu[7]),
+  ),
+  Center(
+    child: Text(sideMenu[8]),
+  ),
+  Center(
+    child: Text(sideMenu[9]),
+  ),
+  Center(
+    child: Text(sideMenu[10]),
+  ),
+  Center(
+    child: Text(sideMenu[11]),
+  ),
+];
+List<String> sideMenu = [
+  'Attendence',
+  'Food Manage',
+  'Rooms Manage',
+  'Leave Requests',
+  'Visitors Pass',
+  'Students Manage',
+  'Students Payment',
+  'Employee Manage',
+  'Bill Manage',
+  'Notice Board',
+  'Settings',
+  'Rules',
+];

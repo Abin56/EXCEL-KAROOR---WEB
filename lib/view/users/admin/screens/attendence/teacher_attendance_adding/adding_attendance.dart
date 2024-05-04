@@ -10,7 +10,6 @@ import 'package:vidyaveechi_website/view/drop_down/select_class.dart';
 import 'package:vidyaveechi_website/view/drop_down/select_period.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/attendence/teacher_attendance_adding/widget.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/attendence/widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/widgets/category_tableHeader.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
 import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/route_NonSelectedContainer.dart';
@@ -21,7 +20,7 @@ class TeachersAttendanceAddingList extends StatelessWidget {
   final CalenderController calenderController = Get.put(CalenderController());
   TeachersAttendanceAddingList({super.key});
 
-  GlobalKey<FormState> fkey = GlobalKey<FormState>();
+ final  GlobalKey<FormState> fkey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -284,6 +283,7 @@ class TeachersAttendanceAddingList extends StatelessWidget {
                               ),
                             ),
                             const Spacer(),
+                            // ignore: invalid_use_of_protected_member
                             Obx(() => attendenceController.studentAttenanceList.value.isEmpty
                                 ? const SizedBox()
                                 : InkWell(
@@ -403,6 +403,7 @@ class TeachersAttendanceAddingList extends StatelessWidget {
                                       child: ListView.separated(
                                         itemBuilder: (context, index) {
                                           final studentData = attendenceController
+                                              // ignore: invalid_use_of_protected_member
                                               .studentAttenanceList.value[index];
                                           // final studentData = StudentModel.fromMap(
                                           //     snapshot.data!.docs[index].data());
@@ -420,6 +421,7 @@ class TeachersAttendanceAddingList extends StatelessWidget {
                                           );
                                         },
                                         itemCount:
+                                            // ignore: invalid_use_of_protected_member
                                             attendenceController.studentAttenanceList.value.length,
                                       ),
                                     );
@@ -501,12 +503,14 @@ class AttendanceAddingDialog extends StatelessWidget {
                     child: ListView.separated(
                         itemBuilder: (context, index) {
                           final studentsData =
+                              // ignore: invalid_use_of_protected_member
                               attendenceController.allStudentAttenanceList.value[index];
                           return AttendanceListTile(studentData: studentsData);
                         },
                         separatorBuilder: (context, index) {
                           return sh10;
                         },
+                        // ignore: invalid_use_of_protected_member
                         itemCount: attendenceController.allStudentAttenanceList.value.length),
                   ),
                 ),

@@ -13,11 +13,11 @@ import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/app_bar/web_hover_dialogues/admin_profile_Box.dart';
 import 'package:vidyaveechi_website/view/users/admin/app_bar/web_hover_dialogues/mail_show_dil_Box.dart';
-import 'package:vidyaveechi_website/view/users/admin/app_bar/web_hover_dialogues/notification_show_dil_Box.dart';
+import 'package:vidyaveechi_website/view/users/parent_panel/pages/parent_dashboard/sections/parent_profile_showlist/parent_profile_showlist.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
 class AppBarParentPanel extends StatefulWidget {
-  const AppBarParentPanel({
+  const  AppBarParentPanel({
     super.key,
   });
 
@@ -95,7 +95,7 @@ class _AppBarParentPanelState extends State<AppBarParentPanel> {
                   Row(
                     children: [
                       Column(
-                       crossAxisAlignment: CrossAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           const Text(
                             'Stevne Zone',
@@ -130,12 +130,17 @@ class _AppBarParentPanelState extends State<AppBarParentPanel> {
                 ],
               ),
             ),
-            CircleAvatar(
-              backgroundColor: Colors.transparent,
-              radius: 20,
-              child: Image.asset(
-                'assests/png/avathar.png',
-                fit: BoxFit.cover,
+            GestureDetector(
+              onTap: () {
+                parentProfileshowlist(context);
+              },
+              child: CircleAvatar(
+                backgroundColor: Colors.transparent,
+                radius: 20,
+                child: Image.asset(
+                  'webassets/png/avathar.png',
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             SizedBox(
@@ -185,51 +190,51 @@ class _AppBarParentPanelState extends State<AppBarParentPanel> {
                 ],
               ),
             ),
-            SizedBox(
-              width: 50,
-              child: Column(
-                children: [
-                  Stack(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 15, right: 10),
-                        child: IconButton(
-                            focusNode: textButtonFocusNode1,
-                            onPressed: () {
-                              showOverlay = true;
-                              //.................... Notification
-                              ResponsiveWebSite.isDesktop(context)
-                                  ? textButtonFocusNode1.requestFocus()
-                                  : appBarNotificationBox(context);
-                            },
-                            icon: Icon(
-                              Icons.notifications_none_outlined,
-                              color: cBlack.withOpacity(0.4),
-                            )),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 07, left: 22),
-                        child: CircleAvatar(
-                          backgroundColor: Colors.white,
-                          radius: 12,
-                          child: CircleAvatar(
-                            backgroundColor:
-                                const Color.fromARGB(255, 255, 49, 49),
-                            radius: 10,
-                            child: GooglePoppinsWidgets(
-                              text: '8',
-                              fontsize: 11,
-                              fontWeight: FontWeight.w600,
-                              color: cWhite,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
+            // SizedBox(
+            //   width: 50,
+            //   child: Column(
+            //     children: [
+            //       Stack(
+            //         children: [
+            //           Padding(
+            //             padding: const EdgeInsets.only(top: 15, right: 10),
+            //             child: IconButton(
+            //                 focusNode: textButtonFocusNode1,
+            //                 onPressed: () {
+            //                   showOverlay = true;
+            //                   //.................... Notification
+            //                   ResponsiveWebSite.isDesktop(context)
+            //                       ? textButtonFocusNode1.requestFocus()
+            //                       : appBarNotificationBox(context);
+            //                 },
+            //                 icon: Icon(
+            //                   Icons.notifications_none_outlined,
+            //                   color: cBlack.withOpacity(0.4),
+            //                 )),
+            //           ),
+            //           Padding(
+            //             padding: const EdgeInsets.only(top: 07, left: 22),
+            //             child: CircleAvatar(
+            //               backgroundColor: Colors.white,
+            //               radius: 12,
+            //               child: CircleAvatar(
+            //                 backgroundColor:
+            //                     const Color.fromARGB(255, 255, 49, 49),
+            //                 radius: 10,
+            //                 child: GooglePoppinsWidgets(
+            //                   text: '8',
+            //                   fontsize: 11,
+            //                   fontWeight: FontWeight.w600,
+            //                   color: cWhite,
+            //                 ),
+            //               ),
+            //             ),
+            //           ),
+            //         ],
+            //       ),
+            //     ],
+            //   ),
+            // ),
             // Padding(
             //   padding: const EdgeInsets.only(left: 05),
             //   child: SizedBox(

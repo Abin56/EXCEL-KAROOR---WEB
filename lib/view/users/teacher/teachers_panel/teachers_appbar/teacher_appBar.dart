@@ -3,12 +3,8 @@ import 'package:sidebar_drawer/sidebar_drawer.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
-import 'package:vidyaveechi_website/view/users/admin/app_bar/academic_year/academic_year.dart';
-import 'package:vidyaveechi_website/view/users/admin/app_bar/admin_profile/admin_profile.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/notification_time_setting/notification.dart';
-import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
-import 'package:vidyaveechi_website/view/users/admin/app_bar/message_notication/message_showing.dart';
 import 'package:vidyaveechi_website/view/users/admin/app_bar/message_notication/notification_show.dart';
+import 'package:vidyaveechi_website/view/users/teacher/teachers_panel/pages/teacher_profile/teacher_profile.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
 
 // ignore: must_be_immutable
@@ -56,62 +52,68 @@ class AppBarTeacherPanel extends StatelessWidget {
                 ////
                 ///....
                 ///
-                ResponsiveWebSite.isMobile(context)
-                    ? const SizedBox(
-                        height: 0,
-                      )
-                    : Padding(
-                        padding: const EdgeInsets.only(top: 5),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                bottom: 5,
-                              ),
-                              child: Container(
-                                height: 45,
-                                width: 280,
-                                decoration: BoxDecoration(
-                                  color: Colors.grey.withOpacity(0.2),
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
-                                child: Row(
-                                  children: [
-                                    // const TextFontWidget(text: '🗓️', fontsize: 12),
-                                    const Padding(
-                                      padding: EdgeInsets.all(8.0),
-                                      child: Icon(Icons.calendar_month_outlined),
-                                    ),
-                                    TextFontWidget(
-                                        text: '${UserCredentialsController.batchId}', fontsize: 12),
-                                    const Spacer(),
-                                    Padding(
-                                      padding: const EdgeInsets.only(right: 10),
-                                      child: GestureDetector(
-                                        onTap: () => academicYearSettingFunction(context),
-                                        child: Container(
-                                          height: 34,
-                                          width: 34,
-                                          decoration: BoxDecoration(
-                                              color: cWhite,
-                                              borderRadius: BorderRadius.circular(20)),
-                                          child: const Center(
-                                            child: Icon(
-                                              Icons.settings_outlined,
-                                              color: cBlack,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+                // ResponsiveWebSite.isMobile(context)
+                //     ? const SizedBox(
+                //         height: 0,
+                //       )
+                //     : Padding(
+                //         padding: const EdgeInsets.only(top: 5),
+                //         child: Row(
+                //           mainAxisAlignment: MainAxisAlignment.center,
+                //           children: [
+                //             Padding(
+                //               padding: const EdgeInsets.only(
+                //                 bottom: 5,
+                //               ),
+                //               child: Container(
+                //                 height: 45,
+                //                 width: 280,
+                //                 decoration: BoxDecoration(
+                //                   color: Colors.grey.withOpacity(0.2),
+                //                   borderRadius: BorderRadius.circular(10),
+                //                 ),
+                //                 child: Row(
+                //                   children: [
+                //                     // const TextFontWidget(text: '🗓️', fontsize: 12),
+                //                     const Padding(
+                //                       padding: EdgeInsets.all(8.0),
+                //                       child:
+                //                           Icon(Icons.calendar_month_outlined),
+                //                     ),
+                //                     TextFontWidget(
+                //                         text:
+                //                             '${UserCredentialsController.batchId}',
+                //                         fontsize: 12),
+                //                     const Spacer(),
+                //                     Padding(
+                //                       padding: const EdgeInsets.only(right: 10),
+                //                       child: GestureDetector(
+                //                         onTap: () =>
+                //                             academicYearSettingFunction(
+                //                                 context),
+                //                         child: Container(
+                //                           height: 34,
+                //                           width: 34,
+                //                           decoration: BoxDecoration(
+                //                               color: cWhite,
+                //                               borderRadius:
+                //                                   BorderRadius.circular(20)),
+                //                           child: const Center(
+                //                             child: Icon(
+                //                               Icons.settings_outlined,
+                //                               color: cBlack,
+                //                             ),
+                //                           ),
+                //                         ),
+                //                       ),
+                //                     )
+                //                   ],
+                //                 ),
+                //               ),
+                //             ),
+                //           ],
+                //         ),
+                //       ),
                 const SizedBox(
                   width: 10,
                 ),
@@ -132,8 +134,10 @@ class AppBarTeacherPanel extends StatelessWidget {
                               Padding(
                                 padding: const EdgeInsets.only(right: 0),
                                 child: Text(
-                                  'Admin',
-                                  style: TextStyle(color: cBlack.withOpacity(0.5), fontSize: 10.7),
+                                  'Teacher',
+                                  style: TextStyle(
+                                      color: cBlack.withOpacity(0.5),
+                                      fontSize: 10.7),
                                 ),
                               ),
                             ],
@@ -141,7 +145,7 @@ class AppBarTeacherPanel extends StatelessWidget {
                           IconButton(
                               focusNode: textButtonFocusNode2,
                               onPressed: () {
-                                showPopupMenu(context);
+                             //   showPopupMenu(context);
                               },
                               icon: const Icon(
                                 Icons.arrow_drop_down,
@@ -155,7 +159,7 @@ class AppBarTeacherPanel extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: () {
-                    adminProfileshowlist(context);
+                    teacherProfileshowlist(context);
                   },
                   child: CircleAvatar(
                     backgroundColor: Colors.transparent,
@@ -178,7 +182,7 @@ class AppBarTeacherPanel extends StatelessWidget {
                             child: IconButton(
                                 focusNode: textButtonFocusNode,
                                 onPressed: () {
-                                  messagesShowingFunction(context);
+                               //   messagesShowingFunction(context);
                                 },
                                 icon: Icon(
                                   Icons.mail_outline_outlined,
@@ -191,7 +195,8 @@ class AppBarTeacherPanel extends StatelessWidget {
                               backgroundColor: Colors.white,
                               radius: 12,
                               child: CircleAvatar(
-                                backgroundColor: const Color.fromARGB(255, 42, 215, 197),
+                                backgroundColor:
+                                    const Color.fromARGB(255, 42, 215, 197),
                                 radius: 10,
                                 child: GooglePoppinsWidgets(
                                   text: '5',
@@ -231,7 +236,8 @@ class AppBarTeacherPanel extends StatelessWidget {
                               backgroundColor: Colors.white,
                               radius: 12,
                               child: CircleAvatar(
-                                backgroundColor: const Color.fromARGB(255, 255, 49, 49),
+                                backgroundColor:
+                                    const Color.fromARGB(255, 255, 49, 49),
                                 radius: 10,
                                 child: GooglePoppinsWidgets(
                                   text: '8',
@@ -249,58 +255,62 @@ class AppBarTeacherPanel extends StatelessWidget {
                 ),
               ],
             ),
-            ResponsiveWebSite.isMobile(context)
-                ? Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          bottom: 5,
-                        ),
-                        child: Container(
-                          height: 45,
-                          width: 280,
-                          decoration: BoxDecoration(
-                            color: Colors.grey.withOpacity(0.2),
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Row(
-                            children: [
-                              // const TextFontWidget(text: '🗓️', fontsize: 12),
-                              const Padding(
-                                padding: EdgeInsets.all(8.0),
-                                child: Icon(Icons.calendar_month_outlined),
-                              ),
-                              TextFontWidget(
-                                  text: '${UserCredentialsController.batchId}', fontsize: 12),
-                              const Spacer(),
-                              Padding(
-                                padding: const EdgeInsets.only(right: 10),
-                                child: GestureDetector(
-                                  onTap: () => academicYearSettingFunction(context),
-                                  child: Container(
-                                    height: 34,
-                                    width: 34,
-                                    decoration: BoxDecoration(
-                                        color: cWhite, borderRadius: BorderRadius.circular(20)),
-                                    child: const Center(
-                                      child: Icon(
-                                        Icons.settings_outlined,
-                                        color: cBlack,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
-                : const SizedBox(
-                    width: 0,
-                  )
+            // ResponsiveWebSite.isMobile(context)
+            //     ? Row(
+            //         mainAxisAlignment: MainAxisAlignment.center,
+            //         children: [
+            //           Padding(
+            //             padding: const EdgeInsets.only(
+            //               bottom: 5,
+            //             ),
+            //             child: Container(
+            //               height: 45,
+            //               width: 280,
+            //               decoration: BoxDecoration(
+            //                 color: Colors.grey.withOpacity(0.2),
+            //                 borderRadius: BorderRadius.circular(10),
+            //               ),
+            //               child: Row(
+            //                 children: [
+            //                   // const TextFontWidget(text: '🗓️', fontsize: 12),
+            //                   const Padding(
+            //                     padding: EdgeInsets.all(8.0),
+            //                     child: Icon(Icons.calendar_month_outlined),
+            //                   ),
+            //                   TextFontWidget(
+            //                       text: '${UserCredentialsController.batchId}',
+            //                       fontsize: 12),
+            //                   const Spacer(),
+            //                   Padding(
+            //                     padding: const EdgeInsets.only(right: 10),
+            //                     child: GestureDetector(
+            //                       onTap: () =>
+            //                           academicYearSettingFunction(context),
+            //                       child: Container(
+            //                         height: 34,
+            //                         width: 34,
+            //                         decoration: BoxDecoration(
+            //                             color: cWhite,
+            //                             borderRadius:
+            //                                 BorderRadius.circular(20)),
+            //                         child: const Center(
+            //                           child: Icon(
+            //                             Icons.settings_outlined,
+            //                             color: cBlack,
+            //                           ),
+            //                         ),
+            //                       ),
+            //                     ),
+            //                   )
+            //                 ],
+            //               ),
+            //             ),
+            //           ),
+            //         ],
+            //       )
+            //     : const SizedBox(
+            //         width: 0,
+            //       )
             /////////////////////////////////////////////////////////////////////
           ],
         ),
@@ -342,7 +352,8 @@ class AppBarTeacherPanel extends StatelessWidget {
                     ),
                     title: Text(
                       'Title',
-                      style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
                     ),
                     subtitle: Text(
                       'Messages',
@@ -390,7 +401,8 @@ class AppBarTeacherPanel extends StatelessWidget {
                     ),
                     title: Text(
                       'Title',
-                      style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
                     ),
                     subtitle: Text(
                       'Messages',
@@ -417,7 +429,8 @@ class AppBarTeacherPanel extends StatelessWidget {
           child: const Center(
             child: Text(
               'Steven Zone',
-              style: TextStyle(fontSize: 15, color: cWhite, fontWeight: FontWeight.w600),
+              style: TextStyle(
+                  fontSize: 15, color: cWhite, fontWeight: FontWeight.w600),
             ),
           ),
         ),
@@ -429,7 +442,8 @@ class AppBarTeacherPanel extends StatelessWidget {
               Container(
                 height: 50,
                 width: 200,
-                decoration: BoxDecoration(border: Border.all(color: cBlack.withOpacity(0.4))),
+                decoration: BoxDecoration(
+                    border: Border.all(color: cBlack.withOpacity(0.4))),
                 child: Row(
                   children: [
                     Padding(
@@ -440,7 +454,7 @@ class AppBarTeacherPanel extends StatelessWidget {
                         child: Image.asset('webassets/png/avathar.png'),
                       ),
                     ),
-                     TextFontWidget(
+                    TextFontWidget(
                       text: 'Stevne Zone',
                       fontsize: 12,
                       color: cBlack,
@@ -452,10 +466,11 @@ class AppBarTeacherPanel extends StatelessWidget {
               Container(
                 height: 35,
                 width: 200,
-                decoration: BoxDecoration(border: Border.all(color: cBlack.withOpacity(0.4))),
-                child:  Row(
+                decoration: BoxDecoration(
+                    border: Border.all(color: cBlack.withOpacity(0.4))),
+                child: Row(
                   children: [
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.only(left: 10, right: 10),
                       child: Icon(
                         Icons.account_circle_outlined,
@@ -475,10 +490,11 @@ class AppBarTeacherPanel extends StatelessWidget {
               Container(
                 height: 35,
                 width: 200,
-                decoration: BoxDecoration(border: Border.all(color: cBlack.withOpacity(0.4))),
-                child:  Row(
+                decoration: BoxDecoration(
+                    border: Border.all(color: cBlack.withOpacity(0.4))),
+                child: Row(
                   children: [
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.only(left: 10, right: 10),
                       child: Icon(
                         Icons.power_settings_new,

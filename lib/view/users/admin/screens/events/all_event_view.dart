@@ -4,13 +4,16 @@ import 'package:vidyaveechi_website/controller/event_controller/event_controller
 import 'package:vidyaveechi_website/model/event_models/events_model.dart';
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/fonts/google_poppins_widget.dart';
+import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/events/create_event.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/events/data_list_event.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/widgets/category_tableHeader.dart';
+import 'package:vidyaveechi_website/view/users/super_admin/widgets/buttonContainer.dart';
 import 'package:vidyaveechi_website/view/utils/firebase/firebase.dart';
 import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
 import 'package:vidyaveechi_website/view/widgets/loading_widget/loading_widget.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
+import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
 
 class AllEventsList extends StatelessWidget {
   const AllEventsList({super.key});
@@ -36,14 +39,39 @@ class AllEventsList extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
+             Row(
+              children: [
+               const RouteSelectedTextContainer(
+                   width: 180, title: 'All Events'),
+               const Spacer(),
+               GestureDetector(
+                 onTap: () {
+                    createEventAdmin(context);
+                 },
+                 child: ButtonContainerWidget(
+                     curving: 30,
+                     colorindex: 0,
+                     height: 40,
+                     width: 180,
+                     child: const Center(
+                      child: TextFontWidgetRouter(
+                        text: 'Create Event',
+                        fontsize: 14,
+                        fontWeight: FontWeight.bold,
+                        color: cWhite,
+                    ),
+                  )),
+               )
+             ],
+                      ),
+            // Padding(
+            //   padding: EdgeInsets.all(
+            //     ResponsiveWebSite.isMobile(context) ? 10 : 20,
+            //   ),
+            //   child: CreateEvent(),
+            // ),
             Padding(
-              padding: EdgeInsets.all(
-                ResponsiveWebSite.isMobile(context) ? 10 : 20,
-              ),
-              child: CreateEvent(),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 10, right: 10),
+              padding: const EdgeInsets.only(left: 10, right: 10,top: 15),
               child: Container(
                 color: cWhite,
                 child: Padding(

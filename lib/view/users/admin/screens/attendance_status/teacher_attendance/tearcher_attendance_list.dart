@@ -6,7 +6,6 @@ import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/drop_down/attendence/day_dropdown.dart';
 import 'package:vidyaveechi_website/view/drop_down/attendence/month_dropdown.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
-import 'package:vidyaveechi_website/view/users/admin/screens/attendance_status/teacher_attendance/teachers_attendance_tble.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/attendence/attendence_adding_view.dart';
 import 'package:vidyaveechi_website/view/widgets/button_container/button_container.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';

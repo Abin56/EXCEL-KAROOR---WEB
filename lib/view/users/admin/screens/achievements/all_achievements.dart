@@ -6,6 +6,7 @@ import 'package:vidyaveechi_website/view/users/admin/screens/achievements/achiev
 import 'package:vidyaveechi_website/view/users/admin/screens/students/student_details/widgets/category_tableHeader.dart';
 import 'package:vidyaveechi_website/view/utils/firebase/firebase.dart';
 import 'package:vidyaveechi_website/view/utils/shared_pref/user_auth/user_credentials.dart';
+import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
 
 class Achievements extends StatefulWidget {
   const Achievements({super.key});
@@ -32,9 +33,20 @@ class _AchievementsState extends State<Achievements> {
               fontWeight: FontWeight.bold,
             ),
           ),
+          // const Padding(
+          //   padding: EdgeInsets.only(top: 20, bottom: 20),
+          //   child: CreateAchievement(),///////////////////////////..................Create Achievements
+          // ),
           const Padding(
-            padding: EdgeInsets.only(top: 20, bottom: 20),
-            child: CreateAchievement(),///////////////////////////..................Create Achievements
+            padding: EdgeInsets.only(bottom: 10),
+            child: Row(
+              children: [
+                RouteSelectedTextContainer(
+                    width: 180, title: 'All Notices'),
+                Spacer(),
+                CreateAchievement()
+              ],
+            ),
           ),
           Container(
             color: cWhite,

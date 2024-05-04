@@ -27,14 +27,14 @@ class TimeTableMainScreen extends StatelessWidget {
     final timetableCtrl = Get.put(TimeTableController());
     List<Widget> textformWidget = [
        Padding(
-        padding: EdgeInsets.only(top: 5, left: 10, right: 10),
+        padding: const EdgeInsets.only(top: 5, left: 10, right: 10),
         child: TextFontWidget(text: 'Select class *', fontsize: 12.5),
       ),
       Padding(
           padding: const EdgeInsets.only(top: 5, left: 10, right: 10),
           child: SelectClassDropDown()),
        Padding(
-        padding: EdgeInsets.only(top: 15, left: 10, right: 10),
+        padding: const EdgeInsets.only(top: 15, left: 10, right: 10),
         child: TextFontWidget(text: 'Select Day *', fontsize: 12.5),
       ),
       Padding(
@@ -74,7 +74,7 @@ class TimeTableMainScreen extends StatelessWidget {
       ),
       ////////////////////////////////////////////////////////1
        Padding(
-        padding: EdgeInsets.only(top: 15, left: 10, right: 10),
+        padding: const EdgeInsets.only(top: 15, left: 10, right: 10),
         child: TextFontWidget(text: 'Select subject *', fontsize: 12.5),
       ),
       Padding(
@@ -149,7 +149,7 @@ class TimeTableMainScreen extends StatelessWidget {
                 Row(
                   children: [
                      Padding(
-                      padding: EdgeInsets.only(left: 20, top: 20),
+                      padding: const EdgeInsets.only(left: 20, top: 20),
                       child: TextFontWidget(
                         text: 'TimeTable',
                         fontsize: 18,
@@ -214,7 +214,7 @@ class TimeTableMainScreen extends StatelessWidget {
                               .collection('classes')
                               .doc(Get.find<ClassController>().classDocID.value)
                               .collection('timetables')
-                              .orderBy('day', descending: true)
+                              .orderBy('index', descending: false)
                               .snapshots(),
                           builder: (context, timesnaps) {
                             log("class id ${Get.find<ClassController>().classDocID.value}");
@@ -377,3 +377,23 @@ class TimeTableMainScreen extends StatelessWidget {
         footer: Container());
   }
 }
+
+final List<String> weekdays = [
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday',
+  'Sunday',
+];
+
+ List<String> weekList = [
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+    'Sunday',
+  ];

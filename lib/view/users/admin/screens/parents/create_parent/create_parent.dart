@@ -5,7 +5,6 @@ import 'package:vidyaveechi_website/controller/admin_section/parent_controller/p
 import 'package:vidyaveechi_website/view/colors/colors.dart';
 import 'package:vidyaveechi_website/view/constant/constant.validate.dart';
 import 'package:vidyaveechi_website/view/drop_down/select_class.dart';
-import 'package:vidyaveechi_website/view/drop_down/select_student.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/widgets/progess_button/progress_button.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';

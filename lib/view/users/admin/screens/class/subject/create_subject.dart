@@ -32,11 +32,11 @@ createSubjectFunction(BuildContext context, String classId) {
         child: SingleChildScrollView(
           child: Column(
             children: [
-               Row(
+                Row(
                 children: [
-                  BackButton(),
+                  const BackButton(),
                   Padding(
-                    padding: EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8.0),
                     child: TextFontWidget(text: "Batch 2024 - 2025", fontsize: 19),
                   ),
                 ],
@@ -67,9 +67,9 @@ createSubjectFunction(BuildContext context, String classId) {
                     border: InputBorder.none,
                     contentPadding: EdgeInsets.zero,
                   ),
-                  value: subjectController.subjectColor!.value,
+                  value: subjectController.subjectColor.value,
                   onChanged: (Color? newValue) {
-                    subjectController.subjectColor!.value = newValue ??
+                    subjectController.subjectColor.value = newValue ??
                         Colors.amber; // Update selectColor in controller
                     log('COL :${newValue?.value.toRadixString(16)}');
                   },

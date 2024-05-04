@@ -7,8 +7,8 @@ import 'package:vidyaveechi_website/view/widgets/data_list_widgets/data_containe
 
 class AttendenceDataListContainer extends StatelessWidget {
   final int index;
-  QueryDocumentSnapshot? attendanceData;
-  AttendenceDataListContainer({
+ final QueryDocumentSnapshot? attendanceData;
+  const AttendenceDataListContainer({
     required this.index,
     super.key,
     this.attendanceData,

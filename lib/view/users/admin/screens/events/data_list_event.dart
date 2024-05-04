@@ -74,7 +74,7 @@ class AllEventsDataList extends StatelessWidget {
           //     )
           child:     GestureDetector(
              onTap: () {
-                                  allEventListFinction(context, data);
+                         allEventListFinction(context, data);
                                 },
             child: DataContainerWidget(
                     rowMainAccess: MainAxisAlignment.center,

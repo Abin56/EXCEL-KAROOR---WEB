@@ -40,7 +40,7 @@ class RegistrationStudentList extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-               Padding(
+                Padding(
                   padding: EdgeInsets.only(left: 10, top: 25, bottom: 10),
                   child: TextFontWidget(
                     text: 'Student Registation List',
@@ -64,7 +64,7 @@ class RegistrationStudentList extends StatelessWidget {
                             }),
                       ),
                     )),
-                 Padding(
+                Padding(
                   padding: const EdgeInsets.only(top: 20, right: 20),
                   child: SizedBox(
                       height: 60,
@@ -73,7 +73,7 @@ class RegistrationStudentList extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                           TextFontWidget(text: 'Class *', fontsize: 10),
+                          TextFontWidget(text: 'Class *', fontsize: 10),
                           const SizedBox(
                             height: 05,
                           ),
@@ -178,6 +178,7 @@ class RegistrationStudentList extends StatelessWidget {
                                     .value)
                                 .collection('RegTemp_Students')
                                 .snapshots(),
+                                
                             builder: (context, snaps) {
                               if (snaps.hasData) {
                                 return ListView.separated(

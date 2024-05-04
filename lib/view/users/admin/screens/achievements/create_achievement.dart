@@ -9,8 +9,8 @@ import 'package:vidyaveechi_website/view/constant/constant.validate.dart';
 import 'package:vidyaveechi_website/view/drop_down/select_class.dart';
 import 'package:vidyaveechi_website/view/fonts/text_widget.dart';
 import 'package:vidyaveechi_website/view/users/admin/screens/notice/noticebutton_container.dart';
+import 'package:vidyaveechi_website/view/users/super_admin/widgets/buttonContainer.dart';
 import 'package:vidyaveechi_website/view/widgets/responsive/responsive.dart';
-import 'package:vidyaveechi_website/view/widgets/routeSelectedTextContainer/routeSelectedTextContainer.dart';
 
 class CreateAchievement extends StatefulWidget {
   const CreateAchievement({super.key});
@@ -223,10 +223,22 @@ class _CreateAchievementState extends State<CreateAchievement> {
                       ),
                     ),
                     showCloseButton: false,
-                    footer: Container());
+                    footer: Container()
+                    );
               }, /////////////////////////////////////////////////////////////create function
-              child: const RouteSelectedTextContainer(
-                  width: 140, title: 'Create')),
+              child: ButtonContainerWidget(
+                       curving: 30,
+                       colorindex: 0,
+                       height: 40,
+                       width: 180,
+                       child: const Center(
+                        child: TextFontWidgetRouter(
+                          text: 'Create Achievement',
+                          fontsize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: cWhite,
+                      ),
+                    ))),
         ],
       ),
     );
